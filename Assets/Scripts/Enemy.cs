@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -16,24 +14,76 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private HealthBar healthBar;
 
+    [SerializeField]
+    private float damage = 10f;
+
+    [SerializeField]
+    private float timeBetweenDealingDamage = 1f;
+
+    private float timeColliding;
+    private bool shouldMoveTowardsThePlayer = true;
+
+    private PlayerHealthManager playerHealthManager;
+
     private HealthSystem healthSystem;
 
     private void Start()
     {
+        playerHealthManager = player.gameObject.GetComponent<PlayerHealthManager>();
+
         healthSystem = new(maxHealth, healthBar);
     }
 
     void Update()
     {
-        Vector3 newPosition = Vector3.MoveTowards(
-            transform.position,
-            player.position,
-            movementSpeed * Time.deltaTime
-        );
+        if (shouldMoveTowardsThePlayer)
+        {
+            Vector3 newPosition = Vector3.MoveTowards(
+                transform.position,
+                player.position,
+                movementSpeed * Time.deltaTime
+            );
 
-        newPosition.y = transform.position.y;
+            newPosition.y = transform.position.y;
 
-        transform.position = newPosition;
+            transform.position = newPosition;
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            shouldMoveTowardsThePlayer = false;
+
+            timeColliding = 0f;
+
+            playerHealthManager.DealtDamage(damage);
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (timeColliding <= timeBetweenDealingDamage)
+            {
+                timeColliding += Time.deltaTime;
+            }
+            else
+            {
+                playerHealthManager.DealtDamage(damage);
+                timeColliding = 0f;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            shouldMoveTowardsThePlayer = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
