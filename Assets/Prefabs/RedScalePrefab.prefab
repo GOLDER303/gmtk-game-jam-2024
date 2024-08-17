@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3638798676651617587}
   - component: {fileID: 9116258358465466877}
   - component: {fileID: 9126391109301986005}
+  - component: {fileID: 3242011038307064450}
   m_Layer: 10
   m_Name: RedScalePrefab
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,3 +107,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.4
   m_Center: {x: 0, y: 0.33, z: 0}
+--- !u!114 &3242011038307064450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120136715346103251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7593b9542ab7e3e49921ae25352a393e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: 0
