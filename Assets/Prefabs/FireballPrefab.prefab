@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSprite: {fileID: 926588434137629067}
-  movementSpeed: 10
+  movementSpeed: 1
 --- !u!54 &5195396246239552762
 Rigidbody:
   m_ObjectHideFlags: 0

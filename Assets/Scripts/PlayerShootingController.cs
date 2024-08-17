@@ -30,7 +30,9 @@ public class PlayerShootingController : MonoBehaviour
             Quaternion.Euler(Constants.CameraXRotation, 0, 0)
         );
 
-        Vector2 playerCharacterScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        Vector2 playerCharacterScreenPosition = Camera.main.WorldToScreenPoint(
+            shootingPoint.position
+        );
 
         float projectileRotation = Vector2.SignedAngle(
             Vector2.right,
@@ -53,7 +55,9 @@ public class PlayerShootingController : MonoBehaviour
             mouseWorldPosition = hitInfo.point;
         }
 
-        Vector3 projectileHeadingDirection = (mouseWorldPosition - transform.position).normalized;
+        Vector3 projectileHeadingDirection = (
+            mouseWorldPosition - shootingPoint.position
+        ).normalized;
 
         projectileHeadingDirection.y = 0;
 
