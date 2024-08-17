@@ -6,7 +6,16 @@ public class MinableResource : MonoBehaviour
     private GameObject[] resourcesToSpawn;
 
     [SerializeField]
-    private float spawnRange = 5f;
+    private float minSpawnLocalX = -5f;
+
+    [SerializeField]
+    private float maxSpawnLocalX = 5f;
+
+    [SerializeField]
+    private float minSpawnLocalZ = -1.5f;
+
+    [SerializeField]
+    private float maxSpawnLocalZ = -5f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,13 +26,11 @@ public class MinableResource : MonoBehaviour
 
         GameObject resourceToSpawn = resourcesToSpawn[Random.Range(0, resourcesToSpawn.Length)];
 
-        Vector2 randomPlaceInsideUnityCircle = Random.insideUnitCircle * spawnRange;
+        float spawnLocationX = Random.Range(minSpawnLocalX, maxSpawnLocalX);
+        float spawnLocationZ = Random.Range(minSpawnLocalZ, maxSpawnLocalZ);
 
-        Vector3 spawnLocation = new Vector3(
-            randomPlaceInsideUnityCircle.x,
-            .1f,
-            randomPlaceInsideUnityCircle.y
-        );
+        Vector3 spawnLocation =
+            transform.position + new Vector3(spawnLocationX, .1f, spawnLocationZ);
 
         GameObject spawnedResource = Instantiate(
             resourceToSpawn,
