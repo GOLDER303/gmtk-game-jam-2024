@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour
 {
+    public float Damage
+    {
+        get => damage;
+    }
+
     [SerializeField]
     private GameObject projectileSprite;
 
@@ -10,6 +15,9 @@ public class BasicProjectile : MonoBehaviour
 
     [SerializeField]
     private float maxLifeTimeInSeconds = 8f;
+
+    [SerializeField]
+    private float damage = 10f;
 
     private Rigidbody rb;
 
