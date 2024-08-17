@@ -8,25 +8,22 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveVector;
 
-    private CharacterController characterController;
+    private Rigidbody rb;
 
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
-    }
-
-    private void Update()
-    {
-        Vector3 direction = new Vector3(moveVector.x, -1f, moveVector.y).normalized;
-
-        if (direction.magnitude >= .1f)
-        {
-            characterController.Move(speed * Time.deltaTime * direction);
-        }
+        rb = GetComponent<Rigidbody>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
+
+        Vector3 direction = new Vector3(moveVector.x, -1f, moveVector.y).normalized;
+
+        if (direction.magnitude >= .1f)
+        {
+            rb.velocity = speed * direction;
+        }
     }
 }
