@@ -55,6 +55,7 @@
     "cSpell.words": [
         "Mathf",
         "Pickable",
-        "Raycast"
+        "Raycast",
+        "UGUI"
     ]
 }

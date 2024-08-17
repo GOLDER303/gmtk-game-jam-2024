@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerResourceManager : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshProUGUI[] scaleCountersTexts;
+
     private readonly Dictionary<ResourceType, int> ownedResourcesCount = new();
 
     private void Start()
@@ -23,7 +27,12 @@ public class PlayerResourceManager : MonoBehaviour
 
         PickableResource pickedRecourse = other.gameObject.GetComponent<PickableResource>();
 
-        ownedResourcesCount[pickedRecourse.ResourceType]++;
+        ResourceType pickedResourceType = pickedRecourse.ResourceType;
+
+        ownedResourcesCount[pickedResourceType]++;
+
+        scaleCountersTexts[(int)pickedResourceType].text = ownedResourcesCount[pickedResourceType]
+            .ToString();
 
         Destroy(other.gameObject);
     }
