@@ -21,4 +21,9 @@ public class BasicProjectile : MonoBehaviour
 
         projectileSprite.transform.Rotate(Vector3.forward, spriteZRotation - 90f);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+    }
 }
