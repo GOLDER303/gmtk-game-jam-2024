@@ -54,6 +54,7 @@
     "dotnet.defaultSolution": "GMTK Game Jam 2024.sln",
     "cSpell.words": [
         "Mathf",
+        "Pickable",
         "Raycast"
     ]
 }

@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 direction = new Vector3(moveVector.x, 0f, moveVector.y).normalized;
+        Vector3 direction = new Vector3(moveVector.x, -1f, moveVector.y).normalized;
 
         if (direction.magnitude >= .1f)
         {
