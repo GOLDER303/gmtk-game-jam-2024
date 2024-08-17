@@ -8,11 +8,19 @@ public class BasicProjectile : MonoBehaviour
     [SerializeField]
     private float movementSpeed = 10f;
 
+    [SerializeField]
+    private float maxLifeTimeInSeconds = 8f;
+
     private Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, maxLifeTimeInSeconds);
     }
 
     public void Setup(float spriteZRotation, Vector3 headingDirection)

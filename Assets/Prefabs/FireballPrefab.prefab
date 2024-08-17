@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSprite: {fileID: 926588434137629067}
   movementSpeed: 20
+  maxLifeTimeInSeconds: 8
 --- !u!54 &5195396246239552762
 Rigidbody:
   m_ObjectHideFlags: 0
