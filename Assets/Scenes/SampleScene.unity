@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 112638107}
   - component: {fileID: 112638106}
   - component: {fileID: 112638105}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1579,6 +1579,9 @@ MonoBehaviour:
     type: 3}
   shootingPoint: {fileID: 1757936850}
   projectileContainer: {fileID: 1643493632}
+  mousePositionRayLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1643493631
 GameObject:
   m_ObjectHideFlags: 0
