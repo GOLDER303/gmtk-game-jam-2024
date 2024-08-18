@@ -25,21 +25,19 @@ public class PlayerMovement : MonoBehaviour
     {
         moveVector = context.ReadValue<Vector2>();
 
-        Vector3 direction = new Vector3(moveVector.x, -1f, moveVector.y).normalized;
+        playerAnimator.SetFloat("Speed", Mathf.Abs(speed * moveVector.magnitude));
 
-        if (direction.magnitude >= .1f)
+        Vector3 direction = new Vector3(moveVector.x, 0f, moveVector.y).normalized;
+
+        rb.velocity = speed * direction;
+
+        if (direction.x > 0)
         {
-            rb.velocity = speed * direction;
-            playerAnimator.SetFloat("Speed", speed);
-
-            if (direction.x > 0)
-            {
-                playerSprite.flipX = true;
-            }
-            else if (direction.x < 0)
-            {
-                playerSprite.flipX = false;
-            }
+            playerSprite.flipX = true;
+        }
+        else if (direction.x < 0)
+        {
+            playerSprite.flipX = false;
         }
     }
 }
