@@ -2,8 +2,20 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
-    public void BuildBuilding(int towerId)
+    [SerializeField]
+    private BuildingPlacementIndicator buildingPlacementIndicator;
+
+    [SerializeField]
+    private Sprite[] buildingSprites;
+
+    public void BuildBuilding(int buildingId)
     {
-        Debug.Log($"Building building with id: {towerId}");
+        buildingPlacementIndicator.SetSprite(buildingSprites[buildingId]);
+        buildingPlacementIndicator.Activate();
+    }
+
+    public void OnPlaceBuilding()
+    {
+        buildingPlacementIndicator.Deactivate();
     }
 }
