@@ -938,7 +938,7 @@ PrefabInstance:
     - target: {fileID: 6918676867487969523, guid: dacf2f71c6a32e941867c27766329a6d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6918676867487969523, guid: dacf2f71c6a32e941867c27766329a6d,
         type: 3}
@@ -5104,7 +5104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1852979213}
-  maxHealth: 50
+  maxHealth: 500
 --- !u!1 &1643493631
 GameObject:
   m_ObjectHideFlags: 0
