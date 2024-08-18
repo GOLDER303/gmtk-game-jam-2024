@@ -2622,6 +2622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  playerAnimator: {fileID: 1168735725}
+  playerSprite: {fileID: 1168735724}
 --- !u!4 &1634910577
 Transform:
   m_ObjectHideFlags: 0
