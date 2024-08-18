@@ -36,4 +36,23 @@ public class PlayerResourceManager : MonoBehaviour
 
         Destroy(other.gameObject);
     }
+
+    public int GetResourceCount(ResourceType resourceType)
+    {
+        return ownedResourcesCount[resourceType];
+    }
+
+    public void ChangeResourceCount(ResourceType resourceType, int amountToChange)
+    {
+        ownedResourcesCount[resourceType] += amountToChange;
+        UpdateUIElements();
+    }
+
+    private void UpdateUIElements()
+    {
+        foreach (ResourceType resourceType in Enum.GetValues(typeof(ResourceType)))
+        {
+            scaleCountersTexts[(int)resourceType].text = GetResourceCount(resourceType).ToString();
+        }
+    }
 }
