@@ -27,8 +27,12 @@ public class Enemy : MonoBehaviour
 
     private HealthSystem healthSystem;
 
+    private Rigidbody rb;
+
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         playerHealthManager = player.gameObject.GetComponent<PlayerHealthManager>();
 
         healthSystem = new(maxHealth, healthBar);
@@ -38,15 +42,18 @@ public class Enemy : MonoBehaviour
     {
         if (shouldMoveTowardsThePlayer)
         {
-            Vector3 newPosition = Vector3.MoveTowards(
-                transform.position,
-                player.position,
-                movementSpeed * Time.deltaTime
-            );
+            Vector3 vectorFromEnemyToPlayer = player.position - transform.position;
 
-            newPosition.y = transform.position.y;
+            if (vectorFromEnemyToPlayer.magnitude > .01f)
+            {
+                Vector3 direction = vectorFromEnemyToPlayer.normalized;
 
-            transform.position = newPosition;
+                rb.velocity = direction * movementSpeed;
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
+            }
         }
     }
 
