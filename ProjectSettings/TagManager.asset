@@ -8,6 +8,7 @@ TagManager:
   - Resource
   - MiningProjectile
   - Enemy
+  - DamagingProjectile
   layers:
   - Default
   - TransparentFX
