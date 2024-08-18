@@ -88,18 +88,28 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Projectile"))
+        if (other.CompareTag("Projectile"))
         {
-            return;
+            float dealtDamage = other.GetComponent<BasicProjectile>().Damage;
+
+            healthSystem.DealDamage(dealtDamage);
+
+            if (healthSystem.Health <= 0)
+            {
+                HandleDeath();
+            }
         }
 
-        float dealtDamage = other.GetComponent<BasicProjectile>().Damage;
-
-        healthSystem.DealDamage(dealtDamage);
-
-        if (healthSystem.Health <= 0)
+        if (other.CompareTag("DamagingProjectile"))
         {
-            HandleDeath();
+            float dealtDamage = other.GetComponent<DamagingProjectile>().Damage;
+
+            healthSystem.DealDamage(dealtDamage);
+
+            if (healthSystem.Health <= 0)
+            {
+                HandleDeath();
+            }
         }
     }
 
