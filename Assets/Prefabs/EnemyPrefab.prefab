@@ -53,6 +53,7 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 8851110718947599705}
   damage: 10
+  timeBetweenDealingDamage: 1
 --- !u!135 &997121919079119041
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -111,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4631856909329481690}
   - component: {fileID: 6480518291074232407}
+  - component: {fileID: 7234044535553190566}
   m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -127,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 7504776833160127899}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.511, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -174,18 +176,38 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5,
-    type: 3}
-  m_Color: {r: 0.7264151, g: 0.099368125, b: 0.099368125, a: 1}
+  m_Sprite: {fileID: 930897233, guid: 69bb1903890240f41a31f6a0f16681d0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.8828125}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7234044535553190566
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504776833160127899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa479c193a6907f448777e1f1388608f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1591601749255460652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,7 +234,7 @@ PrefabInstance:
     - target: {fileID: 3835337501753599367, guid: 37b881c5b39aff345aefa542e6fe048b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.508
+      value: 1.067
       objectReference: {fileID: 0}
     - target: {fileID: 3835337501753599367, guid: 37b881c5b39aff345aefa542e6fe048b,
         type: 3}
