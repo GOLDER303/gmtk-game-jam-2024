@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2147976105755768301}
   - component: {fileID: 6925973521438269479}
   - component: {fileID: 6718523782870791660}
+  - component: {fileID: 5789899649219306289}
   m_Layer: 0
   m_Name: DamagingTower
   m_TagString: Untagged
@@ -59,8 +60,8 @@ Transform:
   m_GameObject: {fileID: 1607236662277517439}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0.2, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.058829, z: -1.1494}
+  m_LocalScale: {x: 2.4142, y: 2.4142, z: 2.4142}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1380859083843961247}
@@ -107,8 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224,
-    type: 3}
+  m_Sprite: {fileID: -1099200486, guid: 328038db53c71824e999a48264d21564, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,3 +155,24 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5.49
   m_Center: {x: 0, y: 0.21133333, z: 0}
+--- !u!95 &5789899649219306289
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607236662277517439}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18b8562d321e3264da7e530938f68247, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
