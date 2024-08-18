@@ -29,6 +29,11 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody rb;
 
+    public void Setup(Transform player)
+    {
+        this.player = player;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,7 +43,7 @@ public class Enemy : MonoBehaviour
         healthSystem = new(maxHealth, healthBar);
     }
 
-    void Update()
+    private void Update()
     {
         if (shouldMoveTowardsThePlayer)
         {
