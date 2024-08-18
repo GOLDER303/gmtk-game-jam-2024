@@ -40,6 +40,9 @@ public class BasicProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
