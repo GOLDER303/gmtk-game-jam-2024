@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour
 {
+    public Action OnPlayerDeath;
+
     [SerializeField]
     private HealthBar healthBar;
 
@@ -27,6 +30,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     private void HandleDeath()
     {
+        OnPlayerDeath?.Invoke();
         Debug.Log("game over");
     }
 }
