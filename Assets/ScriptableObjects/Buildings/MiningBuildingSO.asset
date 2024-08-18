@@ -16,5 +16,5 @@ MonoBehaviour:
   blueScalePrice: 0
   blackScalePrice: 0
   sprite: {fileID: 21300000, guid: 1095b429ef6600b40b0b3560cd882792, type: 3}
-  buildingPrefab: {fileID: 2053810709441539474, guid: 2544dd1711485b046b05534f203a58c5,
+  buildingPrefab: {fileID: 636183119730567847, guid: da93162585475854dbec0a0c91622ac6,
     type: 3}
