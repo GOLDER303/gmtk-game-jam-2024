@@ -2,5 +2,5 @@ public enum ResourceType
 {
     RedScale,
     BlueScale,
-    blackScale,
+    BlackScale,
 }
