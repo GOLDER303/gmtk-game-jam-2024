@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e645bd17eb56044483adc6d0e7227ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
   projectileSprite: {fileID: 926588434137629067}
   movementSpeed: 20
   maxLifeTimeInSeconds: 8
