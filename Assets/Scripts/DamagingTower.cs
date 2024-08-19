@@ -10,7 +10,6 @@ public class DamagingTower : MonoBehaviour
     [SerializeField]
     private DamagingProjectile projectilePrefab;
 
-
     private readonly Queue<GameObject> targetQueue = new();
     private readonly HashSet<GameObject> targetsInRadius = new();
     private GameObject currentTarget = null;
@@ -26,6 +25,11 @@ public class DamagingTower : MonoBehaviour
 
     private void Update()
     {
+        if (currentTarget == null && targetsInRadius.Contains(currentTarget))
+        {
+            targetsInRadius.Remove(currentTarget);
+        }
+
         while (targetQueue.Count > 0 && !targetsInRadius.Contains(currentTarget))
         {
             currentTarget = targetQueue.Dequeue();

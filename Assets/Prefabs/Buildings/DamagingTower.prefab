@@ -41,9 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6358857540176888181}
   - component: {fileID: 2147976105755768301}
-  - component: {fileID: 6925973521438269479}
   - component: {fileID: 6718523782870791660}
   - component: {fileID: 5789899649219306289}
+  - component: {fileID: 6925973521438269479}
   m_Layer: 0
   m_Name: DamagingTower
   m_TagString: Untagged
@@ -119,21 +119,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6925973521438269479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607236662277517439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3bfa05b73464d14ab68e6683e9c6641, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBetweenShots: 2
-  projectilePrefab: {fileID: 2843652785308525796, guid: 9131ed48400a69d49a28a08fa73660cd,
-    type: 3}
 --- !u!135 &6718523782870791660
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -176,3 +161,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6925973521438269479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607236662277517439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bfa05b73464d14ab68e6683e9c6641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenShots: 1
+  projectilePrefab: {fileID: 2843652785308525796, guid: 9131ed48400a69d49a28a08fa73660cd,
+    type: 3}
