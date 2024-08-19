@@ -9,6 +9,7 @@ TagManager:
   - MiningProjectile
   - Enemy
   - DamagingProjectile
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 112638105}
   m_Layer: 7
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -932,10 +932,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 6480518291074232407, guid: dacf2f71c6a32e941867c27766329a6d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 6918676867487969523, guid: dacf2f71c6a32e941867c27766329a6d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5663304
+      value: 20.49
       objectReference: {fileID: 0}
     - target: {fileID: 6918676867487969523, guid: dacf2f71c6a32e941867c27766329a6d,
         type: 3}
@@ -1310,7 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1634910577}
-  enemySpawnDelay: 1
+  enemySpawnDelay: 20
   enemyPrefab: {fileID: 2065734059358515084, guid: dacf2f71c6a32e941867c27766329a6d,
     type: 3}
   xSpawnRange: 5

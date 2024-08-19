@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -20,14 +21,21 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float timeBetweenDealingDamage = 1f;
 
+    [SerializeField]
+    private Material hitFlashMaterial;
+
+    [SerializeField]
+    private float flashEffectDuration = .1f;
+
     private float timeColliding;
     private bool shouldMoveTowardsThePlayer = true;
+    private Coroutine flashEffectCoroutine;
+    private Material defaultMaterial;
 
     private PlayerHealthManager playerHealthManager;
-
     private HealthSystem healthSystem;
-
     private Rigidbody rb;
+    private SpriteRenderer spriteRenderer;
 
     public void Setup(Transform player)
     {
@@ -37,6 +45,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        defaultMaterial = spriteRenderer.material;
 
         playerHealthManager = player.gameObject.GetComponent<PlayerHealthManager>();
 
@@ -106,13 +116,40 @@ public class Enemy : MonoBehaviour
         }
 
         float dealtDamage = other.GetComponent<Projectile>().Damage;
+        HandleHit(dealtDamage);
+    }
 
-        healthSystem.DealDamage(dealtDamage);
+    private void HandleHit(float deltDamage)
+    {
+        PlayFlashEffect();
+
+        healthSystem.DealDamage(deltDamage);
 
         if (healthSystem.Health <= 0)
         {
             HandleDeath();
         }
+    }
+
+    private void PlayFlashEffect()
+    {
+        if (flashEffectCoroutine != null)
+        {
+            StopCoroutine(flashEffectCoroutine);
+        }
+
+        flashEffectCoroutine = StartCoroutine(FlashEffectCoroutine());
+    }
+
+    private IEnumerator FlashEffectCoroutine()
+    {
+        spriteRenderer.material = hitFlashMaterial;
+
+        yield return new WaitForSeconds(flashEffectDuration);
+
+        spriteRenderer.material = defaultMaterial;
+
+        flashEffectCoroutine = null;
     }
 
     private void HandleDeath()
