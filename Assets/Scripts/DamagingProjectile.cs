@@ -2,26 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamagingProjectile : MonoBehaviour
+public class DamagingProjectile : Projectile
 {
-    public float Damage
-    {
-        get => damage;
-    }
-
     [SerializeField]
     private float movementSpeed = 1f;
-
-    [SerializeField]
-    private float damage = 10f;
 
     private Transform targetEnemy;
     private Vector3 targetEnemyPosition;
 
     public void Setup(Transform targetEnemy)
     {
-        Debug.Log("setup");
-
         this.targetEnemy = targetEnemy;
         targetEnemyPosition = targetEnemy.position;
     }
