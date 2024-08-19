@@ -22,6 +22,10 @@ public class DamagingProjectile : Projectile
         {
             targetEnemyPosition = targetEnemy.position;
         }
+        else if (Vector3.Distance(transform.position, targetEnemyPosition) < .5f)
+        {
+            Destroy(gameObject);
+        }
 
         Vector2 enemyPositionOnXYPlane = new(targetEnemyPosition.x, targetEnemyPosition.y);
         Vector2 projectilePositionOnXYPlane = new(transform.position.x, transform.position.y);
@@ -30,8 +34,6 @@ public class DamagingProjectile : Projectile
             Vector2.up,
             (enemyPositionOnXYPlane - projectilePositionOnXYPlane).normalized
         );
-
-        Debug.Log(newRotation);
 
         transform.SetPositionAndRotation(
             Vector3.MoveTowards(
