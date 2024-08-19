@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     private HealthSystem healthSystem;
     private Rigidbody rb;
     private SpriteRenderer spriteRenderer;
+    private ParticleSystem hitParticleSystem;
 
     public void Setup(Transform player)
     {
@@ -46,6 +47,8 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        hitParticleSystem = GetComponentInChildren<ParticleSystem>();
+
         defaultMaterial = spriteRenderer.material;
 
         playerHealthManager = player.gameObject.GetComponent<PlayerHealthManager>();
@@ -122,6 +125,7 @@ public class Enemy : MonoBehaviour
     private void HandleHit(float deltDamage)
     {
         PlayFlashEffect();
+        hitParticleSystem.Play();
 
         healthSystem.DealDamage(deltDamage);
 
