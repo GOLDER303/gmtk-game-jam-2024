@@ -9,4 +9,9 @@ public class PickableResource : MonoBehaviour
 
     [SerializeField]
     private ResourceType resourceType;
+
+    void Start()
+    {
+        Destroy(gameObject, 15);
+    }
 }
