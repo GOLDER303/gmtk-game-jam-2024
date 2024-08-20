@@ -15,12 +15,21 @@ public class PlayerShootingController : MonoBehaviour
     [SerializeField]
     private LayerMask mousePositionRayLayerMask;
 
+    private AudioSource shootEffectAudioSource;
+
+    private void Start()
+    {
+        shootEffectAudioSource = GetComponent<AudioSource>();
+    }
+
     public void Shoot(InputAction.CallbackContext context)
     {
         if (!context.performed)
         {
             return;
         }
+
+        shootEffectAudioSource.Play();
 
         Vector3 mousePosition = Mouse.current.position.ReadValue();
 
