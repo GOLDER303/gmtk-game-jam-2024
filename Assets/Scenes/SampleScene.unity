@@ -8262,6 +8262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourcesToSpawn:
   - {fileID: 2120136715346103251, guid: 4d9de73b6916cec49aec4cf3dbe1af03, type: 3}
+  - {fileID: 2120136715346103251, guid: 1f2bccefa2ac05a4ca3e37c1ad7adf4a, type: 3}
   minSpawnLocalX: -5
   maxSpawnLocalX: 5
   minSpawnLocalZ: -1.5
@@ -12298,7 +12299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleCountersTexts:
   - {fileID: 38750529}
-  - {fileID: 0}
   - {fileID: 1295490536}
 --- !u!54 &1634910586
 Rigidbody:

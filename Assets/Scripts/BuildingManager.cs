@@ -18,10 +18,8 @@ public class BuildingManager : MonoBehaviour
         if (
             playerResourceManager.GetResourceCount(ResourceType.RedScale)
                 >= buildingSOs[buildingId].redScalePrice
-            && playerResourceManager.GetResourceCount(ResourceType.BlueScale)
+            && playerResourceManager.GetResourceCount(ResourceType.Gold)
                 >= buildingSOs[buildingId].blueScalePrice
-            && playerResourceManager.GetResourceCount(ResourceType.BlackScale)
-                >= buildingSOs[buildingId].blackScalePrice
         )
         {
             currentBuildingSO = buildingSOs[buildingId];
@@ -31,12 +29,8 @@ public class BuildingManager : MonoBehaviour
                 -currentBuildingSO.redScalePrice
             );
             playerResourceManager.ChangeResourceCount(
-                ResourceType.BlueScale,
+                ResourceType.Gold,
                 -currentBuildingSO.blueScalePrice
-            );
-            playerResourceManager.ChangeResourceCount(
-                ResourceType.BlackScale,
-                -currentBuildingSO.blackScalePrice
             );
 
             buildingPlacementIndicator.SetSprite(currentBuildingSO.sprite);
