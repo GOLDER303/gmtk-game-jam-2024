@@ -29,12 +29,14 @@ public class MinableResource : MonoBehaviour
     private ParticleSystem hitParticleSystem;
 
     private SpriteRenderer spriteRenderer;
+    private AudioSource hitAudioSource;
 
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         defaultMaterial = spriteRenderer.material;
         hitParticleSystem = GetComponentInChildren<ParticleSystem>();
+        hitAudioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -64,6 +66,7 @@ public class MinableResource : MonoBehaviour
     private void PlayOnHitEffects()
     {
         hitParticleSystem.Play();
+        hitAudioSource.Play();
         PlayFlashEffect();
     }
 
