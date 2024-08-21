@@ -12,6 +12,12 @@ public class BuildingManager : MonoBehaviour
     private BuildingSO[] buildingSOs;
 
     private BuildingSO currentBuildingSO;
+    private AudioSource errorAudioSource;
+
+    private void Start()
+    {
+        errorAudioSource = GetComponent<AudioSource>();
+    }
 
     public void BuildBuilding(int buildingId)
     {
@@ -38,8 +44,7 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
-            // TODO
-            Debug.Log("You can't afford this building!");
+            errorAudioSource.Play();
         }
     }
 
