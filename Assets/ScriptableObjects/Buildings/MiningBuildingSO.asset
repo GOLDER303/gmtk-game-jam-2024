@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e20de2d86855e458a3247acd5f8988, type: 3}
   m_Name: MiningBuildingSO
   m_EditorClassIdentifier: 
-  redScalePrice: 5
-  blueScalePrice: 0
+  redScalePrice: 15
+  blueScalePrice: 10
   blackScalePrice: 0
-  sprite: {fileID: 21300000, guid: 1095b429ef6600b40b0b3560cd882792, type: 3}
+  sprite: {fileID: 21300000, guid: c4b5ec35d8136e74fb8c10b98080ab4c, type: 3}
   buildingPrefab: {fileID: 636183119730567847, guid: da93162585475854dbec0a0c91622ac6,
     type: 3}

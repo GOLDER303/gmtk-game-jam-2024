@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e20de2d86855e458a3247acd5f8988, type: 3}
   m_Name: TowerBuildingSO
   m_EditorClassIdentifier: 
-  redScalePrice: 3
-  blueScalePrice: 0
+  redScalePrice: 10
+  blueScalePrice: 15
   blackScalePrice: 0
-  sprite: {fileID: 21300000, guid: e7d7dc2293af451448c8b9259bf8a66c, type: 3}
+  sprite: {fileID: 21300000, guid: 324d1b056cd06974dbc53ac6d8ac28e3, type: 3}
   buildingPrefab: {fileID: 1607236662277517439, guid: 0f3beb153e43ec640909d9d22bb6b563,
     type: 3}

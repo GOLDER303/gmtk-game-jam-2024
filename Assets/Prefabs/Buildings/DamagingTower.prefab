@@ -138,7 +138,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5.49
+  m_Radius: 3.02
   m_Center: {x: 0, y: 0.21133333, z: 0}
 --- !u!95 &5789899649219306289
 Animator:
@@ -173,6 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bfa05b73464d14ab68e6683e9c6641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenShots: 1
+  delayBetweenShots: 1.5
   projectilePrefab: {fileID: 2843652785308525796, guid: 9131ed48400a69d49a28a08fa73660cd,
     type: 3}
