@@ -18,6 +18,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float zSpawnRange = 50f;
 
+    [SerializeField]
+    private GameManager gameManager;
+
     private void Start()
     {
         StartCoroutine(EnemySpawnCoroutine());
@@ -45,6 +48,6 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
-        spawnedEnemy.Setup(player);
+        spawnedEnemy.Setup(player, gameManager);
     }
 }

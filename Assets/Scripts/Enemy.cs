@@ -37,10 +37,19 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
     private SpriteRenderer spriteRenderer;
     private ParticleSystem hitParticleSystem;
+    private GameManager gameManager;
 
-    public void Setup(Transform player)
+    public void Setup(Transform player, GameManager gameManager)
     {
         this.player = player;
+        this.gameManager = gameManager;
+
+        this.gameManager.OnGameWon += HandleDeath;
+    }
+
+    void OnDisable()
+    {
+        gameManager.OnGameWon -= HandleDeath;
     }
 
     private void Start()
@@ -158,6 +167,9 @@ public class Enemy : MonoBehaviour
 
     private void HandleDeath()
     {
-        Destroy(gameObject);
+        if (gameObject)
+        {
+            Destroy(gameObject);
+        }
     }
 }
