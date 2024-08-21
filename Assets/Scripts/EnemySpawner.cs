@@ -7,7 +7,13 @@ public class EnemySpawner : MonoBehaviour
     private Transform player;
 
     [SerializeField]
-    private float enemySpawnDelay = 1f;
+    private float maxEnemySpawnDelay = 10f;
+
+    [SerializeField]
+    private float minEnemySpawnDelay = 1f;
+
+    [SerializeField]
+    private float spawnDelayDecreaseRate = 1f;
 
     [SerializeField]
     private Enemy enemyPrefab;
@@ -21,9 +27,22 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
 
+    private float currentEnemySpawnDelay;
+    private Coroutine spawnDecreaseRateCoroutine;
+
     private void Start()
     {
+        currentEnemySpawnDelay = maxEnemySpawnDelay;
         StartCoroutine(EnemySpawnCoroutine());
+        spawnDecreaseRateCoroutine = StartCoroutine(SpawnRateDecreaseCoroutine());
+    }
+
+    void Update()
+    {
+        if (gameManager.TimeLeftToWin <= 30)
+        {
+            currentEnemySpawnDelay = .9f;
+        }
     }
 
     private IEnumerator EnemySpawnCoroutine()
@@ -32,7 +51,22 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
 
-            yield return new WaitForSeconds(enemySpawnDelay);
+            yield return new WaitForSeconds(currentEnemySpawnDelay);
+        }
+    }
+
+    private IEnumerator SpawnRateDecreaseCoroutine()
+    {
+        while (true)
+        {
+            if (currentEnemySpawnDelay <= minEnemySpawnDelay)
+            {
+                StopCoroutine(spawnDecreaseRateCoroutine);
+            }
+
+            currentEnemySpawnDelay -= spawnDelayDecreaseRate;
+
+            yield return new WaitForSeconds(1);
         }
     }
 
