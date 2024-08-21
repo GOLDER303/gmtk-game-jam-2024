@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private ParticleSystem hitParticleSystem;
     private GameManager gameManager;
+    private Coroutine damageDealingCoroutine;
 
     public void Setup(Transform player, GameManager gameManager)
     {
@@ -71,7 +72,7 @@ public class Enemy : MonoBehaviour
         {
             Vector3 vectorFromEnemyToPlayer = player.position - transform.position;
 
-            if (vectorFromEnemyToPlayer.magnitude > .01f)
+            if (vectorFromEnemyToPlayer.magnitude > .7f)
             {
                 Vector3 direction = vectorFromEnemyToPlayer.normalized;
 
@@ -92,23 +93,19 @@ public class Enemy : MonoBehaviour
 
             timeColliding = 0f;
 
-            playerHealthManager.DealtDamage(damage);
+            if (damageDealingCoroutine == null)
+            {
+                damageDealingCoroutine = StartCoroutine(DamageDealingCoroutine());
+            }
         }
     }
 
-    void OnCollisionStay(Collision other)
+    private IEnumerator DamageDealingCoroutine()
     {
-        if (other.gameObject.CompareTag("Player"))
+        while (true)
         {
-            if (timeColliding <= timeBetweenDealingDamage)
-            {
-                timeColliding += Time.deltaTime;
-            }
-            else
-            {
-                playerHealthManager.DealtDamage(damage);
-                timeColliding = 0f;
-            }
+            playerHealthManager.DealtDamage(damage);
+            yield return new WaitForSeconds(timeBetweenDealingDamage);
         }
     }
 
@@ -117,6 +114,12 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             shouldMoveTowardsThePlayer = true;
+
+            if (damageDealingCoroutine != null)
+            {
+                StopCoroutine(damageDealingCoroutine);
+                damageDealingCoroutine = null;
+            }
         }
     }
 
